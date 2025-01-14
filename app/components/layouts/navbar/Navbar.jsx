@@ -1,13 +1,19 @@
-"use client";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Logo panaderia la fika | Home",
+  description: "Ecommerce panaderia",
+  keywords: "panaderia, la fika, ecommerce",
+};
 const Navbar = () => {
   return (
     <nav className="navbar bg-base-100">
       <div className="navbar-start">
-        <div className="dropdown">
+        <aside className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-7 w-7"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -42,8 +48,10 @@ const Navbar = () => {
               <a>Item 3</a>
             </li>
           </ul>
-        </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        </aside>
+        <button className="btn btn-link p-0 mb-3">
+          <Image src={"/logoLaFika1.svg"} alt="logo" width={65} height={65} />
+        </button>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

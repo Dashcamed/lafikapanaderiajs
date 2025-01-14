@@ -14,7 +14,7 @@ export default function Home() {
           <div className="hero-content flex-col lg:flex-row-reverse">
             <Image
               alt="Box Office News"
-              src={"/vercel.svg"}
+              src={"/logoLaFika1.svg"}
               width={200}
               height={200}
               className="max-w-sm rounded-lg shadow-2xl"

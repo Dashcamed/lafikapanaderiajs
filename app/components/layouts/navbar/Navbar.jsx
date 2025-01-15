@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { categories } from "./categories";
+import ThemeController from "../../common/themeController/ThemeController";
 
 export const metadata = {
   title: "Logo panaderia la fika | Home",
@@ -31,53 +34,59 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Item 1</a>
+              <Link className="font-bold" href={"/about"}>
+                Nosotros
+              </Link>
             </li>
-            <li>
-              <a>Parent</a>
+            <details className="font-bold">
+              <summary>Productos por categorias</summary>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
+                {categories.map(({ title, path }) => (
+                  <li key={title}>
+                    <Link key={title} href={path} className="btn btn-ghost p-0">
+                      {title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            </details>
           </ul>
         </aside>
-        <button className="btn btn-link p-0 mb-3">
-          <Image src={"/logoLaFika1.svg"} alt="logo" width={65} height={65} />
-        </button>
+        <Link href={"/"} className="btn btn-link p-0 mb-3">
+          <Image
+            src={"/logoLaFika1.svg"}
+            alt="logo"
+            width={65}
+            height={65}
+            priority
+          />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <Link className="font-bold" href={"/about"}>
+              Nosotros
+            </Link>
           </li>
           <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
+            <details className="font-bold">
+              <summary>Productos por categorias</summary>
+              <ul className="p-2 w-52">
+                {categories.map(({ title, path }) => (
+                  <li key={title}>
+                    <Link key={title} href={path} className="btn btn-ghost p-0">
+                      {title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </details>
-          </li>
-          <li>
-            <a>Item 3</a>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <ThemeController />
       </div>
     </nav>
   );

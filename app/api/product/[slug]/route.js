@@ -8,6 +8,7 @@ const sleep = (timer) => {
 export async function GET(_, { params }) {
   const { slug } = params;
   const data = mockData.find((product) => product.slug === slug);
+  console.log(data);
 
   await sleep(1000);
 

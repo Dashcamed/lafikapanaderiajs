@@ -1,14 +1,8 @@
-"use client";
-import Navbar from "./components/layouts/navbar/Navbar";
-import Footer from "./components/layouts/footer/Footer";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
       <main>
         <div className="hero bg-base-200 min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
@@ -31,9 +25,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 }

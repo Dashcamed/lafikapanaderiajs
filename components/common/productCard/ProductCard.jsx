@@ -1,6 +1,7 @@
+"use client";
 const ProductCard = ({ id, title, price, stock, imageUrl, category }) => {
   return (
-    <div className="card card-side md:card card-compact bg-base-100 w-80 md:w-80 shadow-xl">
+    <article className="card card-side md:card card-compact bg-base-100 w-80 md:w-80 shadow-xl">
       <figure>
         <img src={imageUrl} alt={title} />
       </figure>
@@ -9,13 +10,13 @@ const ProductCard = ({ id, title, price, stock, imageUrl, category }) => {
         <p className="font-bold xl:text-xl">${price} CLP</p>
         <p className="font-semibold">Stock: {stock}</p>
         <div className="card-actions justify-between">
-          <div className="badge badge-outline capitalize">{category}</div>
+          <div className="badge badge-outline">{category}</div>
           <button id={id} className="btn btn-primary">
             Ver más
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

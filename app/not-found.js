@@ -1,5 +1,5 @@
 "use client";
-import Page404 from "./404/Page404";
+import Page404 from "../components/layouts/404/Page404";
 import { useRouter } from "next/navigation";
 
 export default function NotFound() {

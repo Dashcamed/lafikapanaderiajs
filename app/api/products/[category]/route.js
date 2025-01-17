@@ -8,10 +8,7 @@ export async function GET(request, { params }) {
   const data =
     category === "all"
       ? mockData
-      : mockData.filter((item) => {
-          console.log("Item Type:", item.type, "Category:", category);
-          return item.type.toLowerCase() === category.toLowerCase();
-        });
+      : mockData.filter((item) => item.category === category);
 
   await sleep(1000);
 

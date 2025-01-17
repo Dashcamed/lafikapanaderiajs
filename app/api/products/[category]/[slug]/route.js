@@ -6,8 +6,8 @@ const sleep = (timer) => {
 };
 
 export async function GET(_, { params }) {
-  const { id } = params;
-  const data = mockData.find((product) => product.id === id);
+  const { slug } = params;
+  const data = mockData.find((product) => product.slug === slug);
 
   await sleep(1000);
 

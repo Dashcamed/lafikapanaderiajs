@@ -5,22 +5,25 @@ export default function Home() {
     <>
       <main>
         <div className="hero bg-base-200 min-h-screen">
-          <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="hero-content flex-col lg:flex-row">
             <Image
-              alt="Box Office News"
-              src={"/logoLaFika1.svg"}
-              width={200}
+              alt="Kanelbullar de La Fika Panaderia"
+              src={
+                "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830834/kanelbullar_k5yihy.svg"
+              }
+              width={250}
               height={200}
-              className="max-w-sm rounded-lg shadow-2xl"
+              className=" max-w-sm rounded-lg shadow-sm"
             />
             <div>
-              <h1 className="text-5xl font-bold">La Fika Panaderia</h1>
-              <p className="py-6">
-                La Fika Panaderia is a small bakery that specializes in
-                traditional Mexican pastries. We are located in la Florida
-                Chile.
+              <h1 className="text-4xl font-bold">
+                Bienvenido a La Fika Panaderia
+              </h1>
+              <p className="py-4">
+                Descubre una panaderia fantástica con productos que te
+                sorprenderán
               </p>
-              <button className="btn btn-primary">Get Started</button>
+              <button className="btn btn-primary">Ver más</button>
             </div>
           </div>
         </div>

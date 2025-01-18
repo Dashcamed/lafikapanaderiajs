@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ThemeController from "../../common/themeController/ThemeController";
+import CartWidget from "@/components/common/cartWidget/CartWidget";
 
 export const metadata = {
   title: "Logo panaderia la fika | Home",
@@ -151,6 +152,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <ThemeController />
+        <CartWidget />
       </div>
     </nav>
   );

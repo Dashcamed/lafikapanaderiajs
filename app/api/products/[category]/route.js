@@ -1,16 +1,14 @@
 import { NextResponse } from "next/server";
 import { mockData } from "@/data/products";
+import React from "react";
 
-const sleep = (timer) => new Promise((resolve) => setTimeout(resolve, timer));
 export async function GET(request, { params }) {
-  const { category } = params;
+  const { category } = await params;
 
   const data =
     category === "all"
       ? mockData
       : mockData.filter((item) => item.category === category);
-
-  await sleep(1000);
 
   return NextResponse.json(data);
 }

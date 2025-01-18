@@ -1,16 +1,16 @@
 import { mockData } from "@/data/products";
 import { NextResponse } from "next/server";
 
-const sleep = (timer) => {
-  return new Promise((resolve) => setTimeout(resolve, timer));
-};
+export async function GET(request, { params }) {
+  const { slug } = await params;
 
-export async function GET(_, { params }) {
-  const { slug } = params;
-  const data = mockData.find((product) => product.slug === slug);
-  console.log(data);
+  const numericSlug = Number(slug);
 
-  await sleep(1000);
+  const data = mockData.find((product) => product.slug === numericSlug);
+
+  if (!data) {
+    return NextResponse.json({ error: "Product not found" }, { status: 404 });
+  }
 
   return NextResponse.json(data);
 }

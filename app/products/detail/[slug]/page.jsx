@@ -1,6 +1,7 @@
 import ProductDetail from "@/components/layouts/products/ProductDetail";
-const DetailPage = ({ params }) => {
-  const { slug } = params;
+
+const DetailPage = async ({ params }) => {
+  const { slug } = await params;
 
   return (
     <main className="container m-auto mt-10">

@@ -37,8 +37,8 @@ const ProductDetail = ({ slug }) => {
     addToCart(productInCart);
   };
   return (
-    <section className="flex flex-row justify-center">
-      <article className="card card-compact lg:card-side lg:w-full xl:w-5/6 bg-base-100 shadow-xl">
+    <section className="flex flex-row justify-center bg-base-300">
+      <article className="card card-compact lg:card-side lg:w-full xl:w-5/6 bg-base-100 shadow-xl my-3">
         <div>
           <GoBack />
         </div>
@@ -46,7 +46,7 @@ const ProductDetail = ({ slug }) => {
           <img
             src={item.imageUrl}
             alt={item.title}
-            className="rounded-lg h-80 lg:h-96  "
+            className="rounded-lg h-80 lg:h-96 mt-2"
           />
         </figure>
         <div className="card-body">

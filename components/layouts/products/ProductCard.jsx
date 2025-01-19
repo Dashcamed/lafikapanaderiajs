@@ -15,7 +15,7 @@ const ProductCard = ({ item, title, price, stock, imageUrl, category }) => {
             href={`/products/detail/${item.slug}`}
             className="flex flex-col btn btn-primary"
           >
-            Ver mas
+            Ver más
           </Link>
         </div>
       </div>

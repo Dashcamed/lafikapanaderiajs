@@ -1,11 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Counter from "./Counter";
 
-const CounterContainer = ({ stock }) => {
-  const [contador, setContador] = useState(0);
+const CounterContainer = ({ stock, addOn, totalAdded }) => {
+  const [contador, setContador] = useState(totalAdded);
   const [disabledSumar, setDisabledSumar] = useState(false);
   const [disabledRestar, setDisabledRestar] = useState(true);
+
+  useEffect(() => {
+    setContador(totalAdded);
+    setDisabledSumar(totalAdded >= stock);
+    setDisabledRestar(totalAdded <= 1);
+  }, [totalAdded, stock]);
 
   const sumar = () => {
     if (contador < stock) {
@@ -28,6 +34,7 @@ const CounterContainer = ({ stock }) => {
   };
 
   let childProps = {
+    addOn,
     contador,
     sumar,
     restar,

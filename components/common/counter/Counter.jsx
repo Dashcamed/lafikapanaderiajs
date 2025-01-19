@@ -1,5 +1,7 @@
+"use client";
 const Counter = ({
   contador,
+  addOn,
   sumar,
   restar,
   disabledSumar,
@@ -23,7 +25,10 @@ const Counter = ({
         <p className="font-bold text-xl">+</p>
       </button>
       <div>
-        <button className="btn btn-primary ml-2 px-8">
+        <button
+          className="btn btn-primary ml-2 px-8"
+          onClick={() => addOn(contador)}
+        >
           Agregar al carrito
         </button>
       </div>

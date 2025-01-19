@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "../components/layouts/navbar/Navbar";
 import Footer from "../components/layouts/footer/Footer";
+import { Providers } from "./Providers";
 
 export const metadata = {
   title: "La fika panaderia",
@@ -12,11 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body>
-        <header>
-          <Navbar />
-        </header>
-        <main>{children}</main>
-        <Footer />
+        <main>
+          <Providers>
+            <Navbar />
+            {children}
+            <Footer />
+          </Providers>
+        </main>
       </body>
     </html>
   );

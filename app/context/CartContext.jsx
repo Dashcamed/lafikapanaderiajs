@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useState } from "react";
 import { useAlert } from "./AlertContext";
 
@@ -5,17 +6,19 @@ export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
   const { showAlert } = useAlert();
 
   const addToCart = (product) => {
-    // let exist = cart.find((element) => element.id === product.id)
+    if (!product.slug || !product.quantity || !product.price) {
+      console.error("Producto inválido");
+      return;
+    }
 
-    let exist = cart.some((element) => element.id === product.id); //boolean
+    let exist = cart.some((element) => element.slug === product.slug); //boolean
 
     if (exist) {
       let newArray = cart.map((element) => {
-        if (element.id === product.id) {
+        if (element.slug === product.slug) {
           return { ...element, quantity: product.quantity };
         } else {
           return element;
@@ -29,8 +32,8 @@ export const CartContextProvider = ({ children }) => {
     }
   };
 
-  const deleteProductById = (id) => {
-    let filteredArray = cart.filter((product) => product.id !== id);
+  const deleteProductById = (slug) => {
+    let filteredArray = cart.filter((product) => product.slug !== slug);
     setCart(filteredArray);
     showAlert("Producto Eliminado", "error");
   };
@@ -50,12 +53,12 @@ export const CartContextProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    showAlert("Carrito Vacio", "warning");
     setCart([]);
+    showAlert("Carrito Vacio", "warning");
   };
 
-  const getTotalQuantityById = (id) => {
-    let product = cart.find((element) => element.id === id);
+  const getTotalQuantityById = (slug) => {
+    let product = cart.find((element) => element.slug === slug);
     return product ? product.quantity : 1;
   };
   let data = {

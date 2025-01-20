@@ -4,9 +4,9 @@ const DetailPage = async ({ params }) => {
   const { slug } = await params;
 
   return (
-    <main className="container m-auto mt-10">
+    <>
       <ProductDetail slug={slug} />
-    </main>
+    </>
   );
 };
 

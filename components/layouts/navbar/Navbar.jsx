@@ -14,7 +14,7 @@ const Navbar = () => {
   const router = useRouter();
   return (
     <header>
-      <nav className="navbar bg-base-100">
+      <nav className="navbar bg-base-100" data-theme="coffee">
         <div className="navbar-start">
           <aside className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

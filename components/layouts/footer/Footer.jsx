@@ -1,7 +1,10 @@
 "use client";
 const Footer = () => {
   return (
-    <footer className="footer footer-center bg-base-300 p-10">
+    <footer
+      className="footer footer-center bg-base-300 p-10"
+      data-theme="coffee"
+    >
       <aside>
         <img
           src={

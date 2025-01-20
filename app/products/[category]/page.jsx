@@ -1,12 +1,16 @@
 import ProductList from "@/components/layouts/products/ProductList";
 import React from "react";
+import { Suspense } from "react";
+import Loading from "./Loading";
 
-const Products = ({ params }) => {
-  const { category } = React.use(params);
+const Products = async ({ params }) => {
+  const { category } = await params;
 
   return (
     <>
-      <ProductList category={category} />
+      <Suspense fallback={<Loading />}>
+        <ProductList category={category} />
+      </Suspense>
     </>
   );
 };

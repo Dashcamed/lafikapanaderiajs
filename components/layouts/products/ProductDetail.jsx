@@ -46,7 +46,7 @@ const ProductDetail = ({ slug }) => {
           <img
             src={item.imageUrl}
             alt={item.title}
-            className="rounded-lg h-80 lg:h-96 mt-2"
+            className="rounded-lg h-80 lg:h-96"
           />
         </figure>
         <div className="card-body">

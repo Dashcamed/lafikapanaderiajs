@@ -1,6 +1,6 @@
 export const mockData = [
   {
-    slug: 1,
+    slug: "baguette",
     title: "Baguette",
     price: 1500,
     stock: 10,
@@ -12,7 +12,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830840/baguette2_farcbl.svg",
   },
   {
-    slug: 2,
+    slug: "ciabatta",
     title: "Ciabatta",
     price: 500,
     stock: 10,
@@ -24,7 +24,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830834/ciabatta_xqdx6b.svg",
   },
   {
-    slug: 3,
+    slug: "toscano",
     title: "Toscano",
     price: 600,
     stock: 10,
@@ -36,7 +36,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830834/ciabattaaceituna_pg3pbw.svg",
   },
   {
-    slug: 4,
+    slug: "focaccia",
     title: "Focaccia",
     price: 2500,
     stock: 10,
@@ -48,7 +48,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830829/focaccia_kogc2h.svg",
   },
   {
-    slug: 5,
+    slug: "hogaza",
     title: "Hogaza",
     price: 3600,
     stock: 10,
@@ -60,7 +60,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830829/hogaza_iawjrn.svg",
   },
   {
-    slug: 6,
+    slug: "marraqueta",
     title: "Marraqueta",
     price: 350,
     stock: 10,
@@ -72,7 +72,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830829/marraqueta_qkcs2h.svg",
   },
   {
-    slug: 7,
+    slug: "molde-blanco",
     title: "Molde Blanco",
     price: 3450,
     stock: 10,
@@ -84,7 +84,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830838/moldeblanco_xssoxf.svg",
   },
   {
-    slug: 8,
+    slug: "molde-integral",
     title: "Molde Integral",
     price: 3800,
     stock: 10,
@@ -96,7 +96,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830838/moldeintegral_enrj0x.svg",
   },
   {
-    slug: 9,
+    slug: "molde-nuez",
     title: "Molde Nuez",
     price: 3750,
     stock: 10,
@@ -108,7 +108,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830838/moldenuez_fmwgvw.svg",
   },
   {
-    slug: 10,
+    slug: "kannelbullar",
     title: "Kanelbullar",
     price: 850,
     stock: 10,
@@ -120,7 +120,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830834/kanelbullar_k5yihy.svg",
   },
   {
-    slug: 11,
+    slug: "medialunas",
     title: "Medialunas",
     price: 800,
     stock: 10,
@@ -132,7 +132,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830835/medialunas_vs2dsj.svg",
   },
   {
-    slug: 12,
+    slug: "medialunas-veganas",
     title: "Medialunas Veganas",
     price: 800,
     stock: 10,
@@ -144,7 +144,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830835/medialunas_vs2dsj.svg",
   },
   {
-    slug: 13,
+    slug: "palmeras",
     title: "Palmeras",
     price: 900,
     stock: 10,
@@ -156,7 +156,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830835/palmeras_c7q15b.svg",
   },
   {
-    slug: 14,
+    slug: "bollo-queso-aceitunas",
     title: "Bollo de queso y aceitunas",
     price: 2350,
     stock: 10,
@@ -168,7 +168,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830836/rolloaceituna_ukitmr.svg",
   },
   {
-    slug: 15,
+    slug: "bollo-queso-tomate",
     title: "Bollo de queso y tomate",
     price: 2350,
     stock: 10,
@@ -180,7 +180,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830836/rollotomate_u5nwkl.svg",
   },
   {
-    slug: 16,
+    slug: "brownie-naranja",
     title: "Brownie de naranja",
     price: 1700,
     stock: 10,
@@ -192,7 +192,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830836/brownienaranja_q9madi.svg",
   },
   {
-    slug: 17,
+    slug: "brownie-tradicional",
     title: "Brownie tradicional",
     price: 1700,
     stock: 10,
@@ -204,7 +204,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830836/brownietradicional_jxug8t.svg",
   },
   {
-    slug: 18,
+    slug: "kuchen-nuez",
     title: "Kuchen de nuez",
     price: 2650,
     stock: 10,
@@ -216,7 +216,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830829/kuchennueces_rhyld4.svg",
   },
   {
-    slug: 19,
+    slug: "tarta-frutos-rojos",
     title: "Tarta de frutos rojos",
     price: 2650,
     stock: 10,
@@ -228,7 +228,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830837/tartafrutosrojos_mvwpzl.svg",
   },
   {
-    slug: 20,
+    slug: "cafe-americano",
     title: "Americano",
     price: 2500,
     stock: 10,
@@ -240,7 +240,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830840/espresso_bvzsj5.svg",
   },
   {
-    slug: 21,
+    slug: "cafe-en-grano",
     title: "Café en grano",
     price: 11000,
     stock: 10,
@@ -252,7 +252,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830831/cafeccrempaque_rpwwen.svg",
   },
   {
-    slug: 22,
+    slug: "cafe-capuccino",
     title: "Capuccino",
     price: 2850,
     stock: 10,
@@ -264,7 +264,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830831/capuccino_pg92ms.svg",
   },
   {
-    slug: 23,
+    slug: "chocolate-caliente",
     title: "Chocolate caliente",
     price: 3500,
     stock: 10,
@@ -276,7 +276,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1726101013/COFFEE-SVG_e3phld.svg",
   },
   {
-    slug: 24,
+    slug: "cafe-espresso",
     title: "Espresso",
     price: 2300,
     stock: 10,
@@ -288,7 +288,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830840/espresso_bvzsj5.svg",
   },
   {
-    slug: 25,
+    slug: "cafe-ristreto",
     title: "Ristreto",
     price: 2300,
     stock: 10,
@@ -300,7 +300,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830840/espresso_bvzsj5.svg",
   },
   {
-    slug: 26,
+    slug: "cafe-latte",
     title: "Latte",
     price: 3200,
     stock: 10,
@@ -312,7 +312,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830831/capuccino_pg92ms.svg",
   },
   {
-    slug: 27,
+    slug: "latte-vainilla",
     title: "Latte Vainilla",
     price: 3590,
     stock: 10,
@@ -324,7 +324,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830831/capuccino_pg92ms.svg",
   },
   {
-    slug: 28,
+    slug: "cafe-lungo",
     title: "Lungo",
     price: 2400,
     stock: 10,
@@ -336,7 +336,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830840/espresso_bvzsj5.svg",
   },
   {
-    slug: 29,
+    slug: "cafe-mocaccino",
     title: "Mocaccino",
     price: 3690,
     stock: 10,
@@ -348,7 +348,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830831/capuccino_pg92ms.svg",
   },
   {
-    slug: 30,
+    slug: "mermelada-de-arandano",
     title: "Mermelada de arándano",
     price: 5300,
     stock: 10,
@@ -360,7 +360,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830839/mermeladaarandano_gbg6qy.svg",
   },
   {
-    slug: 31,
+    slug: "mermelada-de-arandano-con-stevia",
     title: "Mermelada de arándano con stevia",
     price: 3900,
     stock: 10,
@@ -372,7 +372,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830831/mermeladaarandanostevia_xa6pwa.svg",
   },
   {
-    slug: 32,
+    slug: "mermelada-de-damasco",
     title: "Mermelada de damasco",
     price: 5300,
     stock: 10,
@@ -384,7 +384,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830838/mermeladadamasco_o3kiyb.svg",
   },
   {
-    slug: 33,
+    slug: "mermelada-de-durazno",
     title: "Mermelada de durazno",
     price: 5300,
     stock: 10,
@@ -396,7 +396,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830830/mermeladadurazno_mysruw.svg",
   },
   {
-    slug: 34,
+    slug: "mermelada-de-durazno-con-stevia",
     title: "Mermelada de durazno con stevia",
     price: 3900,
     stock: 10,
@@ -408,7 +408,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830831/mermeladaduraznostevia_mneju7.svg",
   },
   {
-    slug: 35,
+    slug: "mermelada-de-frambuesa",
     title: "Mermelada de frambuesa",
     price: 5300,
     stock: 10,
@@ -420,7 +420,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830840/mermeladaframbuesa_orkaos.svg",
   },
   {
-    slug: 36,
+    slug: "mermelada-de-frambuesa-con-stevia",
     title: "Mermelada de frambuesa con stevia",
     price: 3900,
     stock: 10,
@@ -432,7 +432,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830833/mermeladaframbuesastevia_p1fkrt.svg",
   },
   {
-    slug: 37,
+    slug: "mermelada-de-frutilla",
     title: "Mermelada de frutilla",
     price: 5300,
     stock: 10,
@@ -444,7 +444,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830838/mermeladafrutilla_mbllbk.svg",
   },
   {
-    slug: 38,
+    slug: "mermelada-de-frutilla-con-stevia",
     title: "Mermelada de mora",
     price: 5300,
     stock: 10,
@@ -456,7 +456,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830829/mermeladamora_lulans.svg",
   },
   {
-    slug: 39,
+    slug: "mermelada-de-mora-con-stevia",
     title: "Mermelada de mora con stevia",
     price: 3900,
     stock: 10,
@@ -468,7 +468,7 @@ export const mockData = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1725830832/mermeladamorastevia_gyunt6.svg",
   },
   {
-    slug: 40,
+    slug: "mermelada-de-naranja",
     title: "Mermelada de naranja",
     price: 5300,
     stock: 10,

@@ -1,16 +1,15 @@
-import { mockData } from "@/data/products";
+import { db } from "@/app/context/configFirebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
   const { slug } = await params;
 
-  const numericSlug = Number(slug);
+  const ref = collection(db, "products");
+  const q = query(ref, where("slug", "==", slug));
 
-  const data = mockData.find((product) => product.slug === numericSlug);
-
-  if (!data) {
-    return NextResponse.json({ error: "Product not found" }, { status: 404 });
-  }
+  const querySnapshot = await getDocs(q);
+  const data = querySnapshot.docs.map((doc) => doc.data());
 
   return NextResponse.json(data);
 }

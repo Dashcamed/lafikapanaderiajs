@@ -7,6 +7,15 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
       <table className="table">
         {/* head */}
         <thead>
+          <tr className="text-center">
+            <th colSpan={5}>
+              <Pagination
+                onPageChange={onPageChange}
+                totalPages={totalPages}
+                currentPage={currentPage}
+              />
+            </th>
+          </tr>
           <tr>
             <th>
               <label>

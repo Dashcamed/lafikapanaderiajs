@@ -56,7 +56,7 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
               <td>{item.price}</td>
               <td>{item.stock}</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <button className="btn btn-accent btn-xs">details</button>
               </th>
             </tr>
           ))}

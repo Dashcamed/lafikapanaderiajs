@@ -1,13 +1,5 @@
-// "use client";
+"use client";
 import Link from "next/link";
-// import { addDoc, collection } from "firebase/firestore";
-// import { db } from "./context/configFirebase";
-// import { mockData } from "@/data/products";
-// const agregarProductos = () => {
-//   mockData.forEach((product) => {
-//     addDoc(collection(db, "products"), product);
-//   });
-// };
 
 export default function Home() {
   return (
@@ -31,9 +23,6 @@ export default function Home() {
           <Link href="/about" className="btn btn-primary">
             Sobre nosotros
           </Link>
-          {/* <button className="btn btn-primary" onClick={agregarProductos}>
-            Agregar Productos
-          </button> */}
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ const Pagination = ({ onPageChange, totalPages, currentPage }) => {
   };
 
   return (
-    <div className="join">
+    <div className="join ">
       <button
         className="join-item btn"
         onClick={handlePrevious}

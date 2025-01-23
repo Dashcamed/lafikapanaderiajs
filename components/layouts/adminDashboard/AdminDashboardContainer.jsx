@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Drawer from "@/components/common/drawer/Drawer";
 import ProductTableList from "./ProductTableList";
+import AdminNavbar from "./AdminNavbar";
 
 const AdminDashboardContainer = () => {
   const [items, setItems] = useState([]);
@@ -31,10 +32,8 @@ const AdminDashboardContainer = () => {
 
   return (
     <>
-      <header>
-        <Drawer />
-      </header>
-      <section className="grid grid-flow-row place-content-center">
+      <AdminNavbar />
+      <section className="grid grid-flow-row place-content-center bg-base-300">
         <ProductTableList
           items={items}
           totalPages={totalPages}

@@ -2,7 +2,10 @@
 import React from "react";
 import Drawer from "@/components/common/drawer/Drawer";
 
+import { useAuthContext } from "@/app/context/AuthContext";
+
 const AdminNavbar = () => {
+  const { logout } = useAuthContext();
   return (
     <nav className="navbar">
       <div className="flex-none">
@@ -12,7 +15,9 @@ const AdminNavbar = () => {
         <h2 className="text-xl font-bold text-center">Admin Dashboard</h2>
       </div>
       <div>
-        <button className="btn btn-warning p-2">Cerrar sesion</button>
+        <button className="btn btn-warning p-2" onClick={logout}>
+          Cerrar sesion
+        </button>
       </div>
     </nav>
   );

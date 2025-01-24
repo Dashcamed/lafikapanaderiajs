@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import BtnLoginUser from "@/components/common/buttons/BtnLoginUser";
+import BtnRegisterUser from "@/components/common/buttons/BtnRegisterUser";
 
 const LoginForm = ({
   values,
@@ -7,6 +9,7 @@ const LoginForm = ({
   handleSubmit,
   registerUser,
   loginUser,
+  buttons,
 }) => {
   return (
     <>
@@ -66,18 +69,12 @@ const LoginForm = ({
                 onChange={handleChange}
               />
             </label>
-            <button
-              className="btn btn-success"
-              onClick={() => loginUser(values)}
-            >
-              Ingresar
-            </button>
-            <button
-              className="btn btn-primary"
-              onClick={() => registerUser(values)}
-            >
-              Registrarse
-            </button>
+            {buttons.includes("login") && (
+              <BtnLoginUser loginUser={loginUser} values={values} />
+            )}
+            {buttons.includes("register") && (
+              <BtnRegisterUser registerUser={registerUser} values={values} />
+            )}
           </form>
         </div>
       </dialog>

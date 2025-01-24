@@ -3,29 +3,19 @@ import { auth } from "./configFirebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useEffect, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
 export const useAuthContext = () => useContext(AuthContext);
 
-const registerUser = async (values, setUser) => {
+const registerUser = async (values) => {
   try {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      values.email,
-      values.password
-    );
-
-    const user = userCredential.user;
-
-    setUser({
-      logged: true,
-      email: user.email,
-      uid: user.uid,
-    });
+    await createUserWithEmailAndPassword(auth, values.email, values.password);
   } catch (error) {
     console.error("Error al registrar el usuario:", error.message);
   }
@@ -33,22 +23,14 @@ const registerUser = async (values, setUser) => {
 
 const loginUser = async (values, setUser) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      values.email,
-      values.password
-    );
-
-    const user = userCredential.user;
-
-    setUser({
-      logged: true,
-      email: user.email,
-      uid: user.uid,
-    });
+    await signInWithEmailAndPassword(auth, values.email, values.password);
   } catch (error) {
     console.log("error al iniciar sesion", error.message);
   }
+};
+
+const logout = async () => {
+  await signOut(auth);
 };
 
 export const AuthProvider = ({ children }) => {
@@ -58,12 +40,31 @@ export const AuthProvider = ({ children }) => {
     uid: null,
   });
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      if (user) {
+        setUser({
+          logged: true,
+          email: user.email,
+          uid: user.uid,
+        });
+      } else {
+        setUser({
+          logged: false,
+          email: null,
+          uid: null,
+        });
+      }
+    });
+  }, []);
   return (
     <AuthContext.Provider
       value={{
         user,
         registerUser: (values) => registerUser(values, setUser),
         loginUser: (values) => loginUser(values, setUser),
+        logout,
       }}
     >
       {children}

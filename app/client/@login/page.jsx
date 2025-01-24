@@ -1,17 +1,14 @@
 import LoginFormContainer from "@/components/layouts/loginForm/LoginFormContainer";
-
 import React from "react";
 
-const LoginPageAdmin = () => {
+const LoginPageClient = () => {
   return (
     <section className="hero min-h-screen bg-base-300">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h2 className="text-current text-4xl font-bold">
-            Bienvenido Administrador
-          </h2>
+          <h2 className="text-current text-5xl font-bold">Inicia Sesión</h2>
           <div className="py-6">
-            <LoginFormContainer buttons={["login"]} />
+            <LoginFormContainer buttons={["login", "register"]} />
           </div>
         </div>
       </div>
@@ -19,4 +16,4 @@ const LoginPageAdmin = () => {
   );
 };
 
-export default LoginPageAdmin;
+export default LoginPageClient;

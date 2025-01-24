@@ -3,7 +3,7 @@ import { useState } from "react";
 import LoginForm from "./LoginForm";
 import { useAuthContext } from "@/app/context/AuthContext";
 
-const LoginFormContainer = () => {
+const LoginFormContainer = ({ buttons = ["login", "register"] }) => {
   const { registerUser, loginUser } = useAuthContext();
 
   const [values, setValues] = useState({
@@ -28,6 +28,7 @@ const LoginFormContainer = () => {
     handleSubmit,
     registerUser,
     loginUser,
+    buttons,
   };
   return <LoginForm {...childProps} />;
 };

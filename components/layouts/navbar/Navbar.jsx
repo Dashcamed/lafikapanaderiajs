@@ -112,7 +112,7 @@ const Navbar = () => {
                 <ul className="p-2 w-52 z-10">
                   <li>
                     <button
-                      onClick={() => router.push("/products/all")}
+                      onClick={() => router.push("/products/todos")}
                       className="btn btn-ghost p-0"
                     >
                       Todos los productos

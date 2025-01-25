@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <section className="hero min-h-screen animate-fade-in  bg-gradient-to-t from-base-100 via-base-100 to-base-300 ">
+    <section className="hero min-h-screen animate-fade-in bg-gradient-to-t from-base-100 via-base-100 to-base-300 ">
       <div className="hero-content flex-col lg:flex-row">
         <img
           alt="Kanelbullar de La Fika Panaderia"

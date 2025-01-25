@@ -73,7 +73,7 @@ const Cart = ({ cart, deleteProductById, totalQuantity, total, clearCart }) => {
         // Cuando no hay productos en el carrito
         <div className="flex h-dvh flex-col items-center text-center py-3 mx-auto">
           <div>
-            <Link href="/products/all" className="btn btn-link">
+            <Link href="/products/todos" className="btn btn-link">
               <img
                 src={
                   "https://res.cloudinary.com/dpisx0ysb/image/upload/v1737161717/kanellbullarImgSecondary_oivn9w.png"

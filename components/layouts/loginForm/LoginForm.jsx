@@ -4,12 +4,15 @@ import BtnLoginUser from "@/components/common/buttons/BtnLoginUser";
 import BtnRegisterUser from "@/components/common/buttons/BtnRegisterUser";
 
 const LoginForm = ({
-  values,
-  handleChange,
+  email,
+  password,
+  setEmail,
+  setPassword,
   handleSubmit,
   registerUser,
   loginUser,
   buttons,
+  role,
 }) => {
   return (
     <>
@@ -38,12 +41,12 @@ const LoginForm = ({
               </svg>
               <input
                 type="email"
-                value={values.email}
+                value={email}
                 required
                 className="grow"
                 placeholder="Email"
                 name="email"
-                onChange={handleChange}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </label>
             <label className="input input-bordered flex items-center gap-2">
@@ -61,19 +64,28 @@ const LoginForm = ({
               </svg>
               <input
                 type="password"
-                value={values.password}
+                value={password}
                 required
                 className="grow"
                 placeholder="Password"
                 name="password"
-                onChange={handleChange}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </label>
             {buttons.includes("login") && (
-              <BtnLoginUser loginUser={loginUser} values={values} />
+              <BtnLoginUser
+                loginUser={loginUser}
+                email={email}
+                password={password}
+              />
             )}
             {buttons.includes("register") && (
-              <BtnRegisterUser registerUser={registerUser} values={values} />
+              <BtnRegisterUser
+                registerUser={registerUser}
+                email={email}
+                password={password}
+                role={role}
+              />
             )}
           </form>
         </div>

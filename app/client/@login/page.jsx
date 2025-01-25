@@ -8,7 +8,7 @@ const LoginPageClient = () => {
         <div className="max-w-md">
           <h2 className="text-current text-5xl font-bold">Inicia Sesión</h2>
           <div className="py-6">
-            <LoginFormContainer buttons={["login", "register"]} />
+            <LoginFormContainer buttons={["login", "register"]} role="client" />
           </div>
         </div>
       </div>

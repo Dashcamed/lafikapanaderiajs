@@ -1,12 +1,13 @@
 import React from "react";
 
-const BtnRegisterUser = ({ registerUser, values }) => {
+const BtnRegisterUser = ({ registerUser, email, password, role }) => {
   return (
-    <>
-      <button className="btn btn-primary" onClick={() => registerUser(values)}>
-        Registrarse
-      </button>
-    </>
+    <button
+      className="btn btn-primary"
+      onClick={() => registerUser({ email, password, role })}
+    >
+      Registrarse
+    </button>
   );
 };
 

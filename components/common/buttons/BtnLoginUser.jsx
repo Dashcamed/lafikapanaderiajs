@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-
-const BtnLoginUser = ({ loginUser, values }) => {
+const BtnLoginUser = ({ loginUser, email, password }) => {
   return (
-    <>
-      <button className="btn btn-success" onClick={() => loginUser(values)}>
-        Ingresar
-      </button>
-    </>
+    <button
+      className="btn btn-success"
+      onClick={() => loginUser({ email, password })}
+    >
+      Ingresar
+    </button>
   );
 };
 

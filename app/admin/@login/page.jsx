@@ -11,7 +11,7 @@ const LoginPageAdmin = () => {
             Bienvenido Administrador
           </h2>
           <div className="py-6">
-            <LoginFormContainer buttons={["login"]} />
+            <LoginFormContainer buttons={["login"]} role="admin" />
           </div>
         </div>
       </div>

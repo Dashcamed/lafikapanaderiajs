@@ -3,7 +3,7 @@ import { useAuthContext } from "../context/AuthContext";
 
 const AdminLayout = ({ children, login }) => {
   const { user } = useAuthContext();
-  return <>{user.logged ? children : login}</>;
+  return <>{user ? children : login}</>;
 };
 
 export default AdminLayout;

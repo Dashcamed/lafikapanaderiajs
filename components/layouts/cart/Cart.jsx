@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import GoBack from "@/components/common/buttons/GoBack";
 
 const Cart = ({ cart, deleteProductById, totalQuantity, total, clearCart }) => {
   return (
@@ -9,6 +10,7 @@ const Cart = ({ cart, deleteProductById, totalQuantity, total, clearCart }) => {
         <div className="flex flex-col lg:flex-row lg:space-x-6 justify-evenly lg:items-start">
           {/* Acciones del carrito */}
           <div className="lg:order-last lg:w-1/2 my-4 lg:my-0 flex flex-col items-center">
+            <GoBack text="<" />
             <h2 className="lg:text-2xl font-semibold mb-3 text-center">
               Acciones del carrito
             </h2>

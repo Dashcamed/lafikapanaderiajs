@@ -19,6 +19,7 @@ const LoginFormContainer = ({
   const onSubmit = async (data) => {
     const { email, password } = data;
     await loginUser({ email, password });
+    await registerUser({ email, password, role });
   };
 
   const childProps = {

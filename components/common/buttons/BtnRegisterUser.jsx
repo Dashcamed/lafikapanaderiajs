@@ -4,7 +4,10 @@ const BtnRegisterUser = ({ registerUser, email, password, role }) => {
   return (
     <button
       className="btn btn-primary"
-      onClick={() => registerUser({ email, password, role })}
+      onClick={(e) => {
+        e.preventDefault();
+        registerUser({ email, password, role });
+      }}
     >
       Registrarse
     </button>

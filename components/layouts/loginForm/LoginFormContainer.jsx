@@ -1,29 +1,34 @@
 "use client";
-import { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import LoginForm from "./LoginForm";
 import { useAuthContext } from "@/app/context/AuthContext";
 
 const LoginFormContainer = ({ buttons = ["login", "register"], role }) => {
   const { registerUser, loginUser } = useAuthContext();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    const { email, password } = data;
     await loginUser({ email, password });
   };
 
-  let childProps = {
-    email,
-    password,
-    setEmail,
-    setPassword,
+  const childProps = {
+    register,
     handleSubmit,
+    onSubmit,
+    errors,
     registerUser,
     loginUser,
     buttons,
     role,
   };
+
   return <LoginForm {...childProps} />;
 };
 

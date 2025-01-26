@@ -4,7 +4,10 @@ const BtnLoginUser = ({ loginUser, email, password }) => {
   return (
     <button
       className="btn btn-success"
-      onClick={() => loginUser({ email, password })}
+      onClick={(e) => {
+        e.preventDefault();
+        loginUser({ email, password });
+      }}
     >
       Ingresar
     </button>

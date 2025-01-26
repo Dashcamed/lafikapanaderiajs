@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
 
       await setDoc(doc(db, "users", user.uid), {
         role: values.role,
-        email: values.email, // Puedes guardar información adicional si lo necesitas
+        email: values.email,
       });
 
       setUser(user);
@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }) => {
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         setUser(user);
-        setRole(userDoc.data().role); // Asignar el rol
+        setRole(userDoc.data().role);
       } else {
         console.log("No se encontró el documento del usuario.");
       }

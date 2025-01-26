@@ -1,14 +1,8 @@
 "use client";
 import React from "react";
-const BtnLoginUser = ({ loginUser, email, password }) => {
+const BtnLoginUser = () => {
   return (
-    <button
-      className="btn btn-success"
-      onClick={(e) => {
-        e.preventDefault();
-        loginUser({ email, password });
-      }}
-    >
+    <button className="btn btn-success" type="submit">
       Ingresar
     </button>
   );

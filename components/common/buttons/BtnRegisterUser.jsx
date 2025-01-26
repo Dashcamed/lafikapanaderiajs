@@ -1,14 +1,8 @@
 import React from "react";
 
-const BtnRegisterUser = ({ registerUser, email, password, role }) => {
+const BtnRegisterUser = () => {
   return (
-    <button
-      className="btn btn-primary"
-      onClick={(e) => {
-        e.preventDefault();
-        registerUser({ email, password, role });
-      }}
-    >
+    <button className="btn btn-primary" type="submit">
       Registrarse
     </button>
   );

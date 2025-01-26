@@ -3,6 +3,7 @@ import { auth } from "./configFirebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
@@ -77,6 +78,17 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Error al iniciar sesión:", error.message);
+      console.log(user);
+    }
+  };
+
+  const resetPassword = async (email) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert("Se ha enviado un correo para restablecer tu contraseña");
+    } catch (error) {
+      console.log(error, error.message);
+      alert("Error al enviar el correo para restablecer tu contraseña");
     }
   };
 
@@ -92,6 +104,7 @@ export const AuthProvider = ({ children }) => {
         role,
         registerUser,
         loginUser,
+        resetPassword,
         logout,
       }}
     >

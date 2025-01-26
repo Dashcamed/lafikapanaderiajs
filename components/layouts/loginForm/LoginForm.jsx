@@ -2,16 +2,15 @@
 import React from "react";
 import BtnLoginUser from "@/components/common/buttons/BtnLoginUser";
 import BtnRegisterUser from "@/components/common/buttons/BtnRegisterUser";
+import PasswordResetModal from "@/components/common/resetPasswordModal/PasswordResetModal";
 
 const LoginForm = ({
   register,
   handleSubmit,
   onSubmit,
   errors,
-  registerUser,
-  loginUser,
   buttons,
-  role,
+  resetPassword,
 }) => {
   return (
     <>
@@ -66,8 +65,8 @@ const LoginForm = ({
             {...register("password", {
               required: "Password is required",
               minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters long",
+                value: 8,
+                message: "Password must be at least 8 characters",
               },
             })}
           />
@@ -75,9 +74,10 @@ const LoginForm = ({
         {errors.password && (
           <p className="text-red-500 text-sm">{errors.password.message}</p>
         )}
-        {buttons.includes("login") && <BtnLoginUser loginUser={loginUser} />}
-        {buttons.includes("register") && (
-          <BtnRegisterUser registerUser={registerUser} role={role} />
+        {buttons.includes("login") && <BtnLoginUser />}
+        {buttons.includes("register") && <BtnRegisterUser />}
+        {buttons.includes("resetPassword") && (
+          <PasswordResetModal resetPassword={resetPassword} />
         )}
       </form>
     </>

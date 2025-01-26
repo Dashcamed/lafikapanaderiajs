@@ -4,8 +4,11 @@ import { useForm } from "react-hook-form";
 import LoginForm from "./LoginForm";
 import { useAuthContext } from "@/app/context/AuthContext";
 
-const LoginFormContainer = ({ buttons = ["login", "register"], role }) => {
-  const { registerUser, loginUser } = useAuthContext();
+const LoginFormContainer = ({
+  buttons = ["login", "register", "resetPassword"],
+  role,
+}) => {
+  const { registerUser, loginUser, resetPassword } = useAuthContext();
 
   const {
     register,
@@ -27,6 +30,7 @@ const LoginFormContainer = ({ buttons = ["login", "register"], role }) => {
     loginUser,
     buttons,
     role,
+    resetPassword,
   };
 
   return <LoginForm {...childProps} />;

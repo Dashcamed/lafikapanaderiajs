@@ -16,16 +16,21 @@ const LoginFormContainer = ({
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmitLogin = async (data) => {
     const { email, password } = data;
     await loginUser({ email, password });
+  };
+
+  const onSubmitRegister = async (data) => {
+    const { email, password } = data;
     await registerUser({ email, password, role });
   };
 
   const childProps = {
     register,
     handleSubmit,
-    onSubmit,
+    onSubmitLogin,
+    onSubmitRegister,
     errors,
     registerUser,
     loginUser,

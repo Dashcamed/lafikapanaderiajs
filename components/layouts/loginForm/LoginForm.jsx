@@ -7,7 +7,8 @@ import PasswordResetModal from "@/components/common/resetPasswordModal/PasswordR
 const LoginForm = ({
   register,
   handleSubmit,
-  onSubmit,
+  onSubmitLogin,
+  onSubmitRegister,
   errors,
   buttons,
   resetPassword,
@@ -16,7 +17,7 @@ const LoginForm = ({
     <>
       <form
         className="flex flex-col gap-4 p-4"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmitLogin, onSubmitRegister)}
       >
         <label className="input input-bordered flex items-center gap-2">
           <svg

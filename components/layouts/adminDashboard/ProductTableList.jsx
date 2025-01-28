@@ -1,7 +1,9 @@
 import React from "react";
 import Pagination from "@/components/common/pagination/Pagination";
+import Link from "next/link";
 
 const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
+  console.log(items);
   return (
     <div className="overflow-x-auto w-full">
       <table className="table">
@@ -56,7 +58,12 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
               <td>{item.price}</td>
               <td>{item.stock}</td>
               <th>
-                <button className="btn btn-accent btn-xs">details</button>
+                <Link
+                  href={`admin/detail/${item.slug}`}
+                  className="btn btn-accent btn-xs"
+                >
+                  details
+                </Link>
               </th>
             </tr>
           ))}

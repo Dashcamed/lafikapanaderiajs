@@ -67,8 +67,6 @@ export const AuthProvider = ({ children }) => {
         values.password
       );
       const user = userCredential.user;
-
-      // Obtener el documento del usuario
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         setUser(user);

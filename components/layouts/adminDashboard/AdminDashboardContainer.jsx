@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Drawer from "@/components/common/drawer/Drawer";
 import ProductTableList from "./ProductTableList";
 import AdminNavbar from "./AdminNavbar";
 

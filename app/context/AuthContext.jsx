@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
           setUser(user);
-          setRole(userDoc.data().role);
+          setRole(userDoc.data()?.role);
         } else {
           console.error("El documento del usuario no existe");
         }
@@ -38,6 +38,7 @@ export const AuthProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, [db]);
+
   const registerUser = async (values) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -46,6 +47,10 @@ export const AuthProvider = ({ children }) => {
         values.password
       );
       const user = userCredential.user;
+      if (!user) {
+        console.error("No se creó el usuario");
+        return;
+      }
 
       await setDoc(doc(db, "users", user.uid), {
         role: values.role,
@@ -67,16 +72,19 @@ export const AuthProvider = ({ children }) => {
         values.password
       );
       const user = userCredential.user;
+      if (!user) {
+        console.error("No se encontró el usuario.");
+        return;
+      }
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         setUser(user);
-        setRole(userDoc.data().role);
+        setRole(userDoc.data()?.role);
       } else {
         console.log("No se encontró el documento del usuario.");
       }
     } catch (error) {
       console.error("Error al iniciar sesión:", error.message);
-      console.log(user);
     }
   };
 
@@ -91,9 +99,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await signOut(auth);
-    setUser(null);
-    setRole(null);
+    try {
+      await signOut(auth);
+      setUser(null);
+      setRole(null);
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error.message);
+    }
   };
   return (
     <AuthContext.Provider

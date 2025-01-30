@@ -58,7 +58,7 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
               <td>{item.stock}</td>
               <th>
                 <Link
-                  href={`admin/${item.slug}`}
+                  href={`admin/edit/${item.slug}`}
                   className="btn btn-accent btn-xs"
                 >
                   details

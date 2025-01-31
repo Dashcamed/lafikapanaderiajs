@@ -1,5 +1,6 @@
 import React from "react";
 import Pagination from "@/components/common/pagination/Pagination";
+import Link from "next/link";
 
 const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
   return (
@@ -56,7 +57,12 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
               <td>{item.price}</td>
               <td>{item.stock}</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <Link
+                  href={`admin/edit/${item.slug}`}
+                  className="btn btn-accent btn-xs"
+                >
+                  details
+                </Link>
               </th>
             </tr>
           ))}

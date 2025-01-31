@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/app/context/configFirebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -10,7 +10,10 @@ export async function GET(request) {
 
   let ref = collection(db, "products");
   const querySnapshot = await getDocs(ref);
-  const products = querySnapshot.docs.map((doc) => doc.data());
+  const products = querySnapshot.docs.map((doc) => ({
+    id: doc.id, // ID del documento
+    ...doc.data(), // Datos del documento
+  }));
 
   const sortedProducts = products.sort((a, b) =>
     a.title.localeCompare(b.title)

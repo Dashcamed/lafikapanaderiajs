@@ -23,7 +23,7 @@ const About = () => {
               sucursal. De la mano de nuestros proveedores te ofrecemos los
               mejores bebestibles y un café de calidad superior.
             </p>
-            <Link href="/products/all" className="btn btn-primary mr-2">
+            <Link href="/products/todos" className="btn btn-primary mr-2">
               Ver Productos
             </Link>
             <button className="btn btn-secondary" onClick={() => router.back()}>

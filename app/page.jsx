@@ -1,17 +1,8 @@
-// "use client";
 import Link from "next/link";
-// import { addDoc, collection } from "firebase/firestore";
-// import { db } from "./context/configFirebase";
-// import { mockData } from "@/data/products";
-// const agregarProductos = () => {
-//   mockData.forEach((product) => {
-//     addDoc(collection(db, "products"), product);
-//   });
-// };
 
 export default function Home() {
   return (
-    <section className="hero bg-base-200 min-h-screen animate-fade-in">
+    <section className="hero min-h-screen animate-fade-in bg-gradient-to-t from-base-100 via-base-100 to-base-300 ">
       <div className="hero-content flex-col lg:flex-row">
         <img
           alt="Kanelbullar de La Fika Panaderia"
@@ -31,9 +22,6 @@ export default function Home() {
           <Link href="/about" className="btn btn-primary">
             Sobre nosotros
           </Link>
-          {/* <button className="btn btn-primary" onClick={agregarProductos}>
-            Agregar Productos
-          </button> */}
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import Drawer from "@/components/common/drawer/Drawer";
 
 import { useAuthContext } from "@/app/context/AuthContext";
 
-const AdminNavbar = () => {
+const AdminNavbar = (s) => {
   const { logout } = useAuthContext();
   return (
     <nav className="navbar">

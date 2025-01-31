@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Link from "next/link";
 import { db } from "@/app/context/configFirebase";
-import { updateDoc, doc } from "firebase/firestore";
+import { updateDoc, doc, deleteDoc } from "firebase/firestore";
 import { useAlert } from "@/app/context/AlertContext";
 
 const ProductEditCard = ({ item }) => {
-  const { showAlert } = useAlert();
+  const { showAlert, showAlertWithButtons } = useAlert();
   const [isEditing, setIsEditing] = useState(false);
   const { handleSubmit, control, reset } = useForm({
     defaultValues: item,
@@ -26,6 +26,24 @@ const ProductEditCard = ({ item }) => {
     } catch (error) {
       console.error("Error al actualizar el producto:", error);
     }
+  };
+
+  const handleDelete = async () => {
+    try {
+      const docRef = doc(db, "products", item.id);
+      await deleteDoc(docRef);
+      showAlert("Producto Eliminado correctamente", "success");
+    } catch (error) {
+      console.error("Error al eliminar el producto:", error);
+    }
+  };
+
+  const confirmDelete = () => {
+    showAlertWithButtons(
+      "¿Estás seguro de que quieres eliminar?",
+      handleDelete,
+      "warning"
+    );
   };
 
   const handleCancel = () => {
@@ -62,6 +80,9 @@ const ProductEditCard = ({ item }) => {
             </button>
             <button className="btn btn-error" onClick={handleCancel}>
               Cancelar
+            </button>
+            <button className="btn btn-warning" onClick={confirmDelete}>
+              Eliminar
             </button>
           </div>
         )}
@@ -144,7 +165,20 @@ const ProductEditCard = ({ item }) => {
                 name="category"
                 control={control}
                 render={({ field }) => (
-                  <input {...field} className="input input-bordered w-full" />
+                  <select
+                    className="select select-bordered select-xs w-full max-w-xs"
+                    {...field}
+                  >
+                    <option disabled selected>
+                      Selecciona una categoria
+                    </option>
+                    <option>panaderia</option>
+                    <option>bolleria</option>
+                    <option>pasteleria</option>
+                    <option>cafeteria</option>
+                    <option>mermeladas</option>
+                    <option>bebestibles</option>
+                  </select>
                 )}
               />
             ) : (

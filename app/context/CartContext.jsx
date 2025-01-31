@@ -14,6 +14,11 @@ export const CartContextProvider = ({ children }) => {
       return;
     }
 
+    if (product.stock === 0) {
+      showAlert("Este producto está agotado", "error");
+      return;
+    }
+
     let exist = cart.some((element) => element.slug === product.slug); //boolean
 
     if (exist) {
@@ -59,7 +64,7 @@ export const CartContextProvider = ({ children }) => {
 
   const getTotalQuantityById = (slug) => {
     let product = cart.find((element) => element.slug === slug);
-    return product ? product.quantity : 1;
+    return product ? product.quantity : 0;
   };
   let data = {
     cart,

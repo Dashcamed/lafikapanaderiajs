@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Drawer = () => {
   return (
@@ -22,10 +23,7 @@ const Drawer = () => {
         <ul className="menu bg-base-200 text-base-content min-h-full w-64 p-4">
           {/* Sidebar content here */}
           <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
+            <Link href="/admin/create">Crear producto nuevo</Link>
           </li>
         </ul>
       </div>

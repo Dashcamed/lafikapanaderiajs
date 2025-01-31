@@ -1,6 +1,6 @@
 import React from "react";
 import ClientLayoutContainer from "@/components/layouts/clientLayout/ClientLayoutContainer";
-import ProtectedRoute from "../api/hoc/ProtectedRoute";
+import ProtectedRoute from "../../components/hoc/ProtectedRoute";
 
 const ClientPage = () => {
   return (

@@ -9,7 +9,10 @@ export async function GET(request, { params }) {
   const q = query(ref, where("slug", "==", slug));
 
   const querySnapshot = await getDocs(q);
-  const data = querySnapshot.docs.map((doc) => doc.data());
+  const data = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
 
   return NextResponse.json(data);
 }

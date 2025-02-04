@@ -8,7 +8,7 @@ import { useState } from "react";
 import ProductCreate from "@/components/layouts/adminDashboard/ProductCreate";
 import ProtectedRoute from "@/components/hoc/ProtectedRoute";
 
-const AdminCreateProduct = () => {
+export default function AdminCreateProduct() {
   const ref = collection(db, "products");
   const { showAlert } = useAlert();
   const [slugifiedTitle, setSlugifiedTitle] = useState("");
@@ -72,6 +72,4 @@ const AdminCreateProduct = () => {
       <ProductCreate {...childProps} />
     </ProtectedRoute>
   );
-};
-
-export default AdminCreateProduct;
+}

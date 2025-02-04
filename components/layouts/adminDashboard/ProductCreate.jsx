@@ -1,5 +1,5 @@
 "use client";
-import GoBack from "@/components/common/buttons/GoBack";
+import Link from "next/link";
 import React from "react";
 
 const ProductCreate = ({
@@ -14,7 +14,6 @@ const ProductCreate = ({
   return (
     <>
       <section className="flex flex-col items-center py-2">
-        <GoBack />
         <h2 className="text-2xl font-bold text-center mt-2">
           Crear producto nuevo
         </h2>
@@ -154,6 +153,9 @@ const ProductCreate = ({
               }
             />
           </div>
+          <Link href="/admin" className="btn btn-primary mr-3">
+            Volver atrás
+          </Link>
           <button className="btn btn-success mt-2" type="submit">
             Crear
           </button>

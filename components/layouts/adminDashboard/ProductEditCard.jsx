@@ -40,7 +40,7 @@ const ProductEditCard = ({ item }) => {
 
   const confirmDelete = () => {
     showAlertWithButtons(
-      "¿Estás seguro de que quieres eliminar?",
+      "¿Estás seguro de eliminar el producto?",
       handleDelete,
       "warning"
     );
@@ -51,8 +51,12 @@ const ProductEditCard = ({ item }) => {
     reset(item);
   };
   return (
-    <section className="flex flex-col justify-self-center">
+    <section className="flex flex-col justify-center items-center">
       <h2 className="text-2xl font-bold text-center mt-1">Panel de edición</h2>
+      <p className="text-center">
+        Aqui puedes <b>editar</b> o <b>eliminar </b>permanentemente tus
+        productos
+      </p>
       <article className="card w-96 card-compact lg:card-side lg:w-full xl:w-5/6 bg-base-100 shadow-xl my-3">
         <div>
           <Link

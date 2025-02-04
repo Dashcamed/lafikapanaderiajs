@@ -5,7 +5,7 @@ const AdminLayout = ({ children, login }) => {
   const { user } = useAuthContext();
 
   if (!user) {
-    return login || null;
+    return login;
   }
 
   return <>{children}</>;

@@ -15,7 +15,9 @@ const Cart = ({ cart, deleteProductById, totalQuantity, total, clearCart }) => {
               Acciones del carrito
             </h2>
             <div className="flex flex-row items-center">
-              <button className="btn btn-success mb-4 mx-2">Pagar</button>
+              <Link href="/checkout" className="btn btn-success mb-4 mx-2">
+                Pagar
+              </Link>
               <button className="btn btn-warning mb-4" onClick={clearCart}>
                 Vaciar Carrito
               </button>

@@ -1,8 +1,6 @@
 import LoginFormContainer from "@/components/layouts/loginForm/LoginFormContainer";
 
-import React from "react";
-
-const LoginPageAdmin = () => {
+export default function LoginPageAdmin() {
   return (
     <section className="hero min-h-screen bg-base-300">
       <div className="hero-content text-center">
@@ -17,6 +15,4 @@ const LoginPageAdmin = () => {
       </div>
     </section>
   );
-};
-
-export default LoginPageAdmin;
+}

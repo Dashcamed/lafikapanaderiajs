@@ -1,17 +1,24 @@
-import SkeletonCard from "@/components/common/skeletonCard/SkeletonCard";
-import ProductDetail from "@/components/layouts/products/ProductDetail";
-import { Suspense } from "react";
+import ProductDetailCard from "@/components/layouts/products/ProductDetailCard";
+import { db } from "@/app/context/configFirebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
-const DetailPage = async ({ params }) => {
+export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
+
+  const ref = collection(db, "products");
+  const q = query(ref, where("slug", "==", slug));
+
+  const querySnapshot = await getDocs(q);
+  const item = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  const product = Array.isArray(item) ? item[0] : item;
 
   return (
     <>
-      <Suspense fallback={<SkeletonCard cards={1} />}>
-        <ProductDetail slug={slug} />
-      </Suspense>
+      <ProductDetailCard item={product} />
     </>
   );
-};
-
-export default DetailPage;
+}

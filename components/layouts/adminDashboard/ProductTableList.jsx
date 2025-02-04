@@ -61,7 +61,7 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
                   href={`admin/edit/${item.slug}`}
                   className="btn btn-accent btn-xs"
                 >
-                  details
+                  Editar
                 </Link>
               </th>
             </tr>

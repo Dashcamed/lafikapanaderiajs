@@ -2,8 +2,6 @@
 import React from "react";
 import CartContainer from "@/components/layouts/cart/CartContainer";
 
-const CartPage = () => {
+export default function CartPage() {
   return <CartContainer />;
-};
-
-export default CartPage;
+}

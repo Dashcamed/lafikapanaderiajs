@@ -1,33 +1,28 @@
 "use client";
 import React from "react";
 
-const Pagination = ({ onPageChange, totalPages, currentPage }) => {
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      onPageChange(currentPage + 1);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentPage > 1) {
-      onPageChange(currentPage - 1);
-    }
-  };
-
+const Pagination = ({
+  currentPage,
+  hasNext,
+  hasPrev,
+  onNext,
+  onPrev,
+  loading,
+}) => {
   return (
-    <div className="join ">
+    <div className="join">
       <button
+        onClick={onPrev}
+        disabled={!hasPrev || loading}
         className="join-item btn"
-        onClick={handlePrevious}
-        disabled={currentPage === 1}
       >
         «
       </button>
       <button className="join-item btn">{currentPage}</button>
       <button
+        onClick={onNext}
+        disabled={!hasNext || loading}
         className="join-item btn"
-        onClick={handleNext}
-        disabled={currentPage === totalPages}
       >
         »
       </button>

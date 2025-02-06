@@ -1,10 +1,10 @@
 import React from "react";
 import AdminDashboardContainer from "@/components/layouts/adminDashboard/AdminDashboardContainer";
 import ProtectedRoute from "../../components/hoc/ProtectedRoute";
-export default function AdminDashboard({ data, totalPages }) {
+export default function AdminDashboard() {
   return (
     <ProtectedRoute requiredRole="admin">
-      <AdminDashboardContainer data={(data, totalPages)} />
+      <AdminDashboardContainer />
     </ProtectedRoute>
   );
 }

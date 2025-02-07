@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const registerUser = async ({ email, password }) => {
+    setLoading(true);
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -36,6 +37,7 @@ export const AuthProvider = ({ children }) => {
       );
       setUser(userCredential.user);
       router.push("/admin");
+      setLoading(false);
     } catch (error) {
       console.error("Error al registrar el usuario:", error.message);
     }

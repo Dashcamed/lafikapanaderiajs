@@ -1,5 +1,5 @@
 "use client";
-import { auth, db } from "./configFirebase";
+import { auth } from "./configFirebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useContext, useState } from "react";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { useRouter } from "next/navigation";
 
 const AuthContext = createContext();
 
@@ -16,78 +16,40 @@ export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      if (currentUser) {
-        try {
-          const userDocRef = doc(db, "users", currentUser.uid);
-          const userDoc = await getDoc(userDocRef);
-          if (userDoc.exists()) {
-            setUser(currentUser);
-            setRole(userDoc.data()?.role);
-          } else {
-            console.error("El documento del usuario no existe");
-          }
-        } catch (error) {
-          console.error("Error al obtener el documento del usuario:", error);
-        }
-      } else {
-        setUser(null);
-        setRole(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
-  const registerUser = async (values) => {
+  const registerUser = async ({ email, password }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
-        values.email,
-        values.password
+        email,
+        password
       );
-      const currentUser = userCredential.user;
-      if (!currentUser) {
-        console.error("No se creó el usuario");
-        return;
-      }
-      await setDoc(doc(db, "users", currentUser.uid), {
-        role: values.role,
-        email: values.email,
-      });
-      setUser(currentUser);
-      setRole(values.role);
+      setUser(userCredential.user);
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error al registrar el usuario:", error.message);
     }
   };
 
-  const loginUser = async (values) => {
+  const loginUser = async ({ email, password }) => {
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
-        values.email,
-        values.password
+        email,
+        password
       );
-      const user = userCredential.user;
-
-      if (!user) {
-        console.error("No se encontró el usuario.");
-        return;
-      }
-
-      const userDoc = await getDoc(doc(db, "users", user.uid));
-
-      if (userDoc.exists()) {
-        setUser(user);
-        setRole(userDoc.data()?.role);
-      } else {
-        console.log("No se encontró el documento del usuario.");
-      }
+      setUser(userCredential.user);
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error al iniciar sesión:", error.message);
     }
@@ -102,7 +64,6 @@ export const AuthProvider = ({ children }) => {
         "Error al enviar el correo para restablecer la contraseña:",
         error.message
       );
-      alert("Error al enviar el correo para restablecer tu contraseña");
     }
   };
 
@@ -110,7 +71,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await signOut(auth);
       setUser(null);
-      setRole(null); // Redirige manualmente después del logout
+      router.push("/login");
     } catch (error) {
       console.error("Error al cerrar sesión:", error.message);
     }
@@ -120,7 +81,6 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
-        role,
         loading,
         registerUser,
         loginUser,

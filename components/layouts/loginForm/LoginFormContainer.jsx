@@ -6,7 +6,6 @@ import { useAuthContext } from "@/app/context/AuthContext";
 
 const LoginFormContainer = ({
   buttons = ["login", "register", "resetPassword"],
-  role,
 }) => {
   const { registerUser, loginUser, resetPassword } = useAuthContext();
 
@@ -35,7 +34,6 @@ const LoginFormContainer = ({
     registerUser,
     loginUser,
     buttons,
-    role,
     resetPassword,
   };
 

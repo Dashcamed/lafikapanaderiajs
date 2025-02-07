@@ -44,12 +44,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loginUser = async ({ email, password }) => {
+    setLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
+      setLoading(false);
       setUser(userCredential.user);
       router.push("/admin");
     } catch (error) {

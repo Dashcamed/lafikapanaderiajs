@@ -1,5 +1,4 @@
 import React from "react";
-import ProtectedRoute from "@/components/hoc/ProtectedRoute";
 import ProductEditCard from "@/components/layouts/adminDashboard/ProductEditCard";
 import { db } from "@/app/context/configFirebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -16,11 +15,7 @@ const DetailEdit = async ({ params }) => {
   }));
 
   const product = Array.isArray(item) ? item[0] : item;
-  return (
-    <ProtectedRoute requiredRole="admin">
-      <ProductEditCard item={product} />
-    </ProtectedRoute>
-  );
+  return <ProductEditCard item={product} />;
 };
 
 export default DetailEdit;

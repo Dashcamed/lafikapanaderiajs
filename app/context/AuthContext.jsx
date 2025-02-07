@@ -73,14 +73,17 @@ export const AuthProvider = ({ children }) => {
         values.email,
         values.password
       );
-      const currentUser = userCredential.user;
-      if (!currentUser) {
+      const user = userCredential.user;
+
+      if (!user) {
         console.error("No se encontró el usuario.");
         return;
       }
-      const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+
       if (userDoc.exists()) {
-        setUser(currentUser);
+        setUser(user);
         setRole(userDoc.data()?.role);
       } else {
         console.log("No se encontró el documento del usuario.");
@@ -108,6 +111,7 @@ export const AuthProvider = ({ children }) => {
       await signOut(auth);
       setUser(null);
       setRole(null);
+      window.location.href = "/login"; // Redirige manualmente después del logout
     } catch (error) {
       console.error("Error al cerrar sesión:", error.message);
     }

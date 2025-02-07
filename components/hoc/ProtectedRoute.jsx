@@ -6,22 +6,23 @@ import { useEffect } from "react";
 import Loader from "../common/loader/Loader";
 
 const ProtectedRoute = ({ children, requiredRole }) => {
-  const { user, role, loading } = useAuthContext();
+  const { user, role } = useAuthContext();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading) {
-      if (!user) {
-        router.push("/login");
-      } else if (requiredRole && role !== requiredRole) {
-        router.push("/unauthorized");
-      }
-    }
-  }, [user, role, requiredRole, router, loading]);
+    if (user === undefined) return; // Esperar a que el estado se inicialice
 
-  if (loading || !user || (requiredRole && role !== requiredRole)) {
-    return <Loader />;
+    if (!user) {
+      router.replace("/login"); // `replace` evita que el usuario pueda regresar atrás
+    } else if (requiredRole && role !== requiredRole) {
+      router.replace("/unauthorized");
+    }
+  }, [user, role, requiredRole, router]);
+
+  if (user === undefined) {
+    return <Loader />; // Evita que se renderice antes de saber el estado
   }
+
   return children;
 };
 

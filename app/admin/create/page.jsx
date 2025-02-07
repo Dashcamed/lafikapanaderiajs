@@ -6,7 +6,6 @@ import { addDoc, collection } from "firebase/firestore";
 import { useAlert } from "@/app/context/AlertContext";
 import { useState } from "react";
 import ProductCreate from "@/components/layouts/adminDashboard/ProductCreate";
-import ProtectedRoute from "@/components/hoc/ProtectedRoute";
 
 export default function AdminCreateProduct() {
   const ref = collection(db, "products");
@@ -67,9 +66,5 @@ export default function AdminCreateProduct() {
     showAlert,
   };
 
-  return (
-    <ProtectedRoute requiredRole={"admin"}>
-      <ProductCreate {...childProps} />
-    </ProtectedRoute>
-  );
+  return <ProductCreate {...childProps} />;
 }

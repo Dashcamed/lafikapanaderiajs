@@ -1,28 +1,23 @@
+"use client";
 import React from "react";
-import Pagination from "@/components/common/pagination/Pagination";
 import Link from "next/link";
+import Pagination from "@/components/common/pagination/Pagination";
 
-const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
+const ProductTableList = ({
+  items,
+  currentPage,
+  hasNext,
+  hasPrev,
+  onNext,
+  onPrev,
+  loading,
+}) => {
   return (
     <div className="overflow-x-auto w-full">
       <table className="table">
-        {/* head */}
         <thead>
-          <tr className="text-center">
-            <th colSpan={5}>
-              <Pagination
-                onPageChange={onPageChange}
-                totalPages={totalPages}
-                currentPage={currentPage}
-              />
-            </th>
-          </tr>
           <tr>
-            <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
-            </th>
+            <th></th>
             <th>Productos</th>
             <th>Precio</th>
             <th>Stock</th>
@@ -30,22 +25,18 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
           {items.map((item) => (
-            <tr key={item.slug}>
-              <th>
+            <tr key={item.id}>
+              <td>
                 <label>
                   <input type="checkbox" className="checkbox" />
                 </label>
-              </th>
+              </td>
               <td>
                 <div className="flex items-center gap-3">
                   <div className="avatar">
                     <div className="mask mask-squircle h-12 w-12">
-                      <img
-                        src={item.imageUrl}
-                        alt="Avatar Tailwind CSS Component"
-                      />
+                      <img src={item.imageUrl} alt={item.title} />
                     </div>
                   </div>
                   <div>
@@ -56,37 +47,30 @@ const ProductTableList = ({ items, onPageChange, totalPages, currentPage }) => {
               </td>
               <td>{item.price}</td>
               <td>{item.stock}</td>
-              <th>
+              <td>
                 <Link
                   href={`admin/edit/${item.slug}`}
                   className="btn btn-accent btn-xs"
                 >
                   Editar
                 </Link>
-              </th>
+              </td>
             </tr>
           ))}
         </tbody>
-        {/* foot */}
-        <tfoot>
-          <tr>
-            <th></th>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th></th>
-          </tr>
-          <tr className="text-center">
-            <th colSpan={5}>
-              <Pagination
-                onPageChange={onPageChange}
-                totalPages={totalPages}
-                currentPage={currentPage}
-              />
-            </th>
-          </tr>
-        </tfoot>
       </table>
+
+      {/* Paginación */}
+      <div className="text-center my-4">
+        <Pagination
+          currentPage={currentPage}
+          hasNext={hasNext}
+          hasPrev={hasPrev}
+          onNext={onNext}
+          onPrev={onPrev}
+          loading={loading}
+        />
+      </div>
     </div>
   );
 };

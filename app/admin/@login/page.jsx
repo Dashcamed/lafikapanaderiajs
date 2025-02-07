@@ -9,7 +9,7 @@ export default function LoginPageAdmin() {
             Bienvenido Administrador
           </h2>
           <div className="py-6">
-            <LoginFormContainer buttons={["login"]} role="admin" />
+            <LoginFormContainer buttons={["login"]} />
           </div>
         </div>
       </div>

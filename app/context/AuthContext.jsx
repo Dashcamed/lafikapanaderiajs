@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
         password
       );
       setUser(userCredential.user);
-      router.push("/dashboard");
+      router.push("/admin");
     } catch (error) {
       console.error("Error al registrar el usuario:", error.message);
     }
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
         password
       );
       setUser(userCredential.user);
-      router.push("/dashboard");
+      router.push("/admin");
     } catch (error) {
       console.error("Error al iniciar sesión:", error.message);
     }
@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await signOut(auth);
       setUser(null);
-      router.push("/login");
+      router.push("/admin");
     } catch (error) {
       console.error("Error al cerrar sesión:", error.message);
     }

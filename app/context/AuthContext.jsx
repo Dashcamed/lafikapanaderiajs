@@ -110,8 +110,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await signOut(auth);
       setUser(null);
-      setRole(null);
-      window.location.href = "/login"; // Redirige manualmente después del logout
+      setRole(null); // Redirige manualmente después del logout
     } catch (error) {
       console.error("Error al cerrar sesión:", error.message);
     }

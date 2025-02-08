@@ -8,6 +8,7 @@ export const metadata = {
   title: "La fika panaderia",
   description:
     "Somos la fika panaderia ubicada en la Florida ofrecemos una gran variedad de productos como nunca antes los has probado. Ven a conocernos!",
+  keywords: "panaderia, la fika, ecommerce",
 };
 
 const montserrat = Montserrat({

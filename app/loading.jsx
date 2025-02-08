@@ -2,8 +2,8 @@ import Loader from "@/components/common/loader/Loader";
 
 export default function Loading() {
   return (
-    <div className="h-dvh flex justify-center items-center">
+    <section className="h-dvh grid grid-cols-1 place-items-center">
       <Loader />
-    </div>
+    </section>
   );
 }

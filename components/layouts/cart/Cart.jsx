@@ -75,7 +75,7 @@ const Cart = ({ cart, deleteProductById, totalQuantity, total, clearCart }) => {
         </div>
       ) : (
         // Cuando no hay productos en el carrito
-        <div className="flex h-dvh flex-col items-center text-center py-3 mx-auto">
+        <div className="flex h-fit md:h-dvh flex-col items-center text-center py-3 mx-auto">
           <div>
             <Link href="/products/todos" className="btn btn-link">
               <img

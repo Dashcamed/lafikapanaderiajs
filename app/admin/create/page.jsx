@@ -6,11 +6,13 @@ import { addDoc, collection } from "firebase/firestore";
 import { useAlert } from "@/app/context/AlertContext";
 import { useState } from "react";
 import ProductCreate from "@/components/layouts/adminDashboard/ProductCreate";
+import { useRouter } from "next/navigation";
 
 export default function AdminCreateProduct() {
   const ref = collection(db, "products");
   const { showAlert } = useAlert();
   const [slugifiedTitle, setSlugifiedTitle] = useState("");
+  const router = useRouter();
   const slugify = (str) => {
     const slug = str
       .toLowerCase()
@@ -25,7 +27,8 @@ export default function AdminCreateProduct() {
   const onSubmit = async (data) => {
     data.slug = slugifiedTitle;
     await addDoc(ref, data);
-    showAlert("Producto creado, vuelve atras", "success");
+    showAlert("Producto creado correctamente", "success");
+    router.push("/admin");
   };
 
   const {

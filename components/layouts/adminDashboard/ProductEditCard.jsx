@@ -1,17 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Link from "next/link";
 import { db } from "@/app/context/configFirebase";
 import { updateDoc, doc, deleteDoc } from "firebase/firestore";
 import { useAlert } from "@/app/context/AlertContext";
+import { useRouter } from "next/navigation";
 
-const ProductEditCard = ({ item }) => {
+const ProductEditCard = ({ item, onUpdate }) => {
   const { showAlert, showAlertWithButtons } = useAlert();
   const [isEditing, setIsEditing] = useState(false);
   const { handleSubmit, control, reset } = useForm({
     defaultValues: item,
   });
+  const router = useRouter();
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -23,6 +25,7 @@ const ProductEditCard = ({ item }) => {
       const docRef = doc(db, "products", item.id);
       await updateDoc(docRef, data);
       showAlert("Producto Actualizado, vuelve atras", "success");
+      onUpdate();
     } catch (error) {
       console.error("Error al actualizar el producto:", error);
     }
@@ -33,8 +36,11 @@ const ProductEditCard = ({ item }) => {
       const docRef = doc(db, "products", item.id);
       await deleteDoc(docRef);
       showAlert("Producto Eliminado correctamente", "success");
+      onUpdate();
     } catch (error) {
       console.error("Error al eliminar el producto:", error);
+    } finally {
+      router.push("/admin");
     }
   };
 
@@ -58,14 +64,12 @@ const ProductEditCard = ({ item }) => {
         productos
       </p>
       <article className="card w-96 card-compact lg:card-side lg:w-full xl:w-5/6 bg-base-100 shadow-xl my-3">
-        <div>
-          <Link
-            href={`/admin`}
-            className="btn btn-square  btn-primary absolute right-px top-px"
-          >
-            Volver
-          </Link>
-        </div>
+        <Link
+          href={`/admin`}
+          className="btn btn-square  btn-primary absolute right-2.5 top-px"
+        >
+          Volver
+        </Link>
         {!isEditing ? (
           <div>
             <button

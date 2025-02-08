@@ -29,6 +29,7 @@ export default async function CategoryPage({ params }) {
         <p className="font-semibold xl:text-lg">
           Total: {data.length} productos
         </p>
+        <p>Filtra por categoría desde la barra de navegación</p>
       </div>
       <div className="flex flex-row flex-wrap items-center gap-4 justify-center mb-3">
         {data.map((item) => (

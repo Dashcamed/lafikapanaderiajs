@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ThemeController from "../../common/themeController/ThemeController";
 import CartWidget from "@/components/common/cartWidget/CartWidget";
+import OrdersWidget from "@/components/common/ordersWidget/OrdersWidget";
 
 export const metadata = {
   title: "Logo panaderia la fika | Home",
@@ -20,7 +21,7 @@ const Navbar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -154,6 +155,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <OrdersWidget />
           <ThemeController />
           <Link href={"/cart"}>
             <CartWidget />

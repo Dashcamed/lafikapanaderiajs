@@ -14,9 +14,7 @@ const ProductDetailCard = ({ item }) => {
   return (
     <section className="flex flex-row justify-center bg-base-300">
       <article className="card card-compact lg:card-side lg:w-full xl:w-5/6 bg-base-100 shadow-xl my-3">
-        <div>
-          <GoBack />
-        </div>
+        <GoBack />
         <figure>
           <img
             src={item.imageUrl}

@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Link from "next/link";
 import { db } from "@/app/context/configFirebase";
@@ -63,24 +63,24 @@ const ProductEditCard = ({ item, onUpdate }) => {
         Aqui puedes <b>editar</b> o <b>eliminar </b>permanentemente tus
         productos
       </p>
-      <article className="card w-96 card-compact lg:card-side lg:w-full xl:w-5/6 bg-base-100 shadow-xl my-3">
+      <article className=" card w-96 card-compact lg:card-side lg:w-full xl:w-5/6 bg-base-100 shadow-xl my-3">
         <Link
           href={`/admin`}
-          className="btn btn-square  btn-primary absolute right-2.5 top-px"
+          className="btn btn-square btn-primary absolute right-5 top-px"
         >
           Volver
         </Link>
         {!isEditing ? (
           <div>
             <button
-              className="btn btn-secondary absolute left-px"
+              className="btn btn-secondary absolute left-2"
               onClick={handleEditClick}
             >
               Editar
             </button>
           </div>
         ) : (
-          <div className="absolute left-px flex gap-2">
+          <div className="absolute left-2 flex gap-2">
             <button
               className="btn btn-success"
               onClick={handleSubmit(handleSave)}
@@ -95,12 +95,25 @@ const ProductEditCard = ({ item, onUpdate }) => {
             </button>
           </div>
         )}
-        <figure>
+        <figure className="flex flex-col items-center">
           <img
-            src={item.imageUrl}
             alt={item.title}
             className="rounded-lg h-80 lg:h-96"
+            src={item.imageUrl}
           />
+          {isEditing && (
+            <Controller
+              name="imageUrl"
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  className="input input-bordered mt-2"
+                  placeholder="URL de la imagen"
+                />
+              )}
+            />
+          )}
         </figure>
         <div className="card-body" key={item.slug}>
           <h2 className="card-title text-2xl lg:text-3xl">

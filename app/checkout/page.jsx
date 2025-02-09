@@ -29,7 +29,7 @@ export default function CheckoutPage() {
       items: cart,
       total: total,
       date: new Date(),
-      status: "pending",
+      status: "Pendiente",
     };
 
     if (!order.items || order.items.length === 0 || !order.total) {

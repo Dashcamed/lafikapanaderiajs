@@ -25,6 +25,9 @@ const Drawer = () => {
           <li>
             <Link href="/admin/create">Crear producto nuevo</Link>
           </li>
+          <li>
+            <Link href="/admin/clientOrders">Pedidos de clientes</Link>
+          </li>
         </ul>
       </div>
     </div>

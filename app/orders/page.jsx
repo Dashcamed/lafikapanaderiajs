@@ -123,9 +123,7 @@ export default function Orders() {
                   <td className="border px-4 py-2 font-semibold">
                     ${order.total.toLocaleString()}
                   </td>
-                  <td className="border px-4 py-2">
-                    {order.status === "pending" ? "Pendiente" : "Completada"}
-                  </td>
+                  <td className="border px-4 py-2">{order.status}</td>
                 </tr>
               ))}
             </tbody>

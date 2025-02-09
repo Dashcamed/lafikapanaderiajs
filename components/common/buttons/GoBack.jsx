@@ -4,7 +4,7 @@ const GoBack = () => {
   const router = useRouter();
   return (
     <button
-      className="btn btn-square absolute btn-primary right-px"
+      className="btn btn-square absolute btn-primary right-1.5"
       onClick={() => router.back()}
     >
       Volver
